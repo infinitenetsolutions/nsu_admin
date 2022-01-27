@@ -28,7 +28,7 @@ class StructureController extends Controller
      */
     public function create()
     {
-        //
+        //code here
     }
 
     /**
