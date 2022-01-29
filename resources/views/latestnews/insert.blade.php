@@ -41,7 +41,7 @@
                             </div>
                             <div class="form-group col-sm-12">
                                 <label for="" class="text-dark"> <b>Description</b> </label>
-                                <textarea required name="massage" type="text" class="form-control"
+                                <textarea required name="massage" type="text" class="form-control ckeditor"
                                     placeholder="description"></textarea>
 
                             </div>
