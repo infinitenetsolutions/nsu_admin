@@ -20,7 +20,7 @@
                                 <input required name="title" type="text" class="form-control" placeholder="title">
 
                             </div>
-
+                            <input type="hidden" name="updated_at" value="{{ date('Y-m-d h:m:s') }}" id="">
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b> Images </b> </label>
                                 <input required name="images" type="file" class="form-control" placeholder="Images	">
