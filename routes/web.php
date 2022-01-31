@@ -28,6 +28,7 @@ use App\Http\Controllers\StudentPdfControlller;
 use App\Http\Controllers\TransportController;
 use App\Http\Controllers\TransportRouteController;
 use App\Http\Controllers\HeaderController;
+use App\Http\Controllers\SocialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -299,10 +300,12 @@ Route::get('aboutpdf/status/{id}', [AboutPdfControlller::class, 'status'])->midd
 Route::get('aboutpdf/update/{id}', [AboutPdfControlller::class, 'edit'])->middleware('auth')->name('aboutpdf.edit');
 Route::post('aboutpdf/update', [AboutPdfControlller::class, 'update'])->middleware('auth')->name('aboutpdf.update');
 
-// about pdf end
-Route::get('404', function () {
-    return view('404');
-});
+Route::get('social/{id}', [SocialController::class, 'index'])->middleware('auth')->name('social');
+Route::post('social/{id}', [SocialController::class, 'store'])->middleware('auth')->name('social.insert');
+Route::get('social/delete/{id}', [SocialController::class, 'destroy'])->middleware('auth')->name('social.delete');
+Route::get('social/status/{id}', [SocialController::class, 'status'])->middleware('auth')->name('social.status');
+Route::get('social/update/{id}', [SocialController::class, 'edit'])->middleware('auth')->name('social.edit');
+Route::post('social/{id}/update', [SocialController::class, 'update'])->middleware('auth')->name('social.update');
 
 
 

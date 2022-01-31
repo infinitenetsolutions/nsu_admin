@@ -1,5 +1,5 @@
 <x-layout>
-    @slot('title', 'Teachers')
+    @slot('title', 'social')
     @slot('body')
 
 
@@ -17,7 +17,7 @@
                     @include('include.navbar')
                     <!-- End of Topbar -->
                     {{-- adding the model --}}
-                    @include('teacher.insert')
+                    @include('social.insert')
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
 
@@ -26,12 +26,12 @@
                             <div class="container-fluid">
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
-                                        <h2>Teachers</h2>
+                                        <h2>Social</h2>
                                     </div>
                                     <div class="col-sm-6">
                                         <ol class="breadcrumb float-sm-right">
                                             <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                            <li class="breadcrumb-item active">Teachers</li>
+                                            <li class="breadcrumb-item active">Social</li>
                                         </ol>
                                     </div>
                                 </div>
@@ -41,7 +41,7 @@
                         <div class="card shadow mb-4">
                             <div class="card-header py-3 row">
                                 <div class="col-6">
-                                    <h6 class="m-0 font-weight-bold text-primary">Teachers </h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Social </h6>
                                 </div>
                                 <div class="col-6"> <button type="button"
                                         class="btn btn-primary btn-sm float-right " data-toggle="modal"
@@ -74,89 +74,57 @@
                                 </div>
                             @endif
                             <div class="card-body">
-                                <div class="float-right mb-2">
-                                    <input onkeyup="searchData(this.value)" type="search"
-                                        class="form-control form-control-sm" placeholder="search.." name="" id="">
-
-                                </div>
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead class="text-dark">
                                             <tr>
-                                            <tr>
                                                 <th>S.NO</th>
                                                 <th>Name </th>
-                                                <th>Desingnation </th>
-                                                <th>emailid</th>
-                                                <th>resume</th>
-                                                <th>Images </th>
-                                                <th>Social</th>
+                                                <th>Link </th>
                                                 <th>Action 1</th>
                                                 <th>Action 2</th>
                                                 <th>Status</th>
-                                            </tr>
                                             </tr>
                                         </thead>
                                         <tfoot class="text-dark">
                                             <tr>
                                                 <th>S.NO</th>
                                                 <th>Name </th>
-                                                <th>Desingnation </th>
-                                                <th>emailid</th>
-                                                <th>resume</th>
-                                                <th>Images </th>
-                                                <th>Social</th>
+                                                <th>Link </th>
                                                 <th>Action 1</th>
                                                 <th>Action 2</th>
                                                 <th>Status</th>
                                             </tr>
                                         </tfoot>
-                                        <tbody id="data">
-                                            @foreach ($data as $slider)
+                                        <tbody>
+                                            @foreach ($data as $social)
                                                 <tr>
 
 
-                                                    <td> {{ $loop->iteration + $data->firstItem() - 1 }}
+                                                    <td>{{ $loop->iteration }}</td>
 
-                                                    <td> {{ $slider->name }} </td>
-                                                    <td> {{ $slider->designation }} </td>
-                                                    <td> {{ $slider->emailid }} </td>
-                                                    <td> <a href="{{ asset('upload/teacher/' . $slider->resume) }}"
-                                                            target="_blank">
-                                                            <object
-                                                                data="{{ asset('upload/teacher/' . $slider->resume) }}"
-                                                                type="application/pdf" width="100" height="100">
+                                                    <td> {{ $social->social }} </td>
+                                                    <td> {{ $social->link }} </td>
 
-                                                            </object></a></td>
-
-                                                    <td><img width="100"
-                                                            src="{{ asset('upload/teacher/' . $slider->image_name) }}">
-                                                    </td>
-
-                                                    <td><a href="{{ route('social', $slider->id) }}"
-                                                            class="btn btn-info btn-sm"><i class="fas fa-share-alt"></i></a>
-                                                    </td>
-
-                                                    <td><a href="{{ route('teacher') }}/update/{{ $slider->id }}"
+                                                    <td><a href="{{ route('social.edit',$social->id ) }}"
                                                             class="btn btn-warning btn-sm"><i
                                                                 class="far fa-edit"></i></a>
                                                     </td>
-                                                    <td><a href="{{ route('teacher') }}/delete/{{ $slider->id }}"
+                                                    <td><a href="{{ route('social.delete',$social->id ) }}"
                                                             class="btn btn-danger btn-sm"><i
                                                                 class="fas fa-trash-alt"></i></a>
                                                     </td>
-                                                    <td><a href="{{ route('teacher') }}/status/{{ $slider->id }}"
-                                                            class="btn @if ($slider->is_deleted == 1)
+                                                    <td><a href="{{ route('social.status',$social->id) }}"
+                                                            class="btn @if ($social->status == 1)
                                                                 btn-success
                                                                 @endif btn-secondary  btn-sm">
-                                                            @if ($slider->is_deleted == 1) Active @else Deactive @endif</a>
+                                                            @if ($social->status == 1) Active @else Deactive @endif</a>
                                                     </td>
+
                                                 </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    {{ $data->onEachSide(-1)->links() }}
-
                                 </div>
                             </div>
                         </div>
@@ -181,34 +149,6 @@
 <!-- Page level plugins -->
 <script src="vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 
 <!-- Page level custom scripts -->
 <script src="js/demo/datatables-demo.js"></script>
-<style>
-    #dataTable_filter {
-        display: none;
-    }
-
-</style>
-<script>
-    function searchData(data) {
-        console.log(data)
-        $.ajax({
-
-            url: "{{ route('teacher.search') }}",
-            data: {
-                'data': data
-            },
-            type: 'GET',
-            success: function(result) {
-
-                $('#data').html(result);
-            }
-        });
-    }
-    $('#dataTable').DataTable({
-        "paging": false // false to disable pagination (or any other option)
-
-    });
-</script>

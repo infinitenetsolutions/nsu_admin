@@ -58,10 +58,7 @@
                                                     <label for="" class="text-dark"> <b>Title</b> </label>
                                                     <input required name="title" type="text" class="form-control"
                                                         value="{{ $data->title }}" placeholder="Name">
-
                                                 </div>
-
-
                                                 <div class="form-group col-sm-4">
                                                     <label for="" class="text-dark"> <b> Images </b> </label>
 
@@ -75,16 +72,9 @@
                                                             <img width="200"
                                                                 src="{{ asset('upload/latestnews/' . $data->images) }}"
                                                                 alt="">
-
                                                         </div>
-
                                                     </div>
-
-
                                                 </div>
-
-
-
                                                 <div class="form-group col-sm-4">
                                                     <label for="" class="text-dark"> <b>status</b> </label>
                                                     <select required name="is_deleted" type="text" class="form-control"
