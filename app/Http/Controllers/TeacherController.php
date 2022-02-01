@@ -57,8 +57,8 @@ class TeacherController extends Controller
             DB::table('faculty_tbl')
                 ->where('id', $id)
                 ->update(['image_name' => $img_header, 'resume' => $img_name]);
-                return redirect()->back()->with('store', 'Data successfully Added');
-            }
+            return redirect()->back()->with('store', 'Data successfully Added');
+        }
     }
 
 
@@ -122,8 +122,6 @@ class TeacherController extends Controller
             $image->move($destinationPath, $teacher_image);
         }
 
-
-
         $result = DB::table('faculty_tbl')
             ->where('id', $request->id)
             ->update($request->except(['_token', 'id', 'image_name', 'resume']));
@@ -177,6 +175,7 @@ class TeacherController extends Controller
 
                 </td>
 
+                <td><a href="<?php echo route('social', $teacher->id) ?>" class="btn btn-info btn-sm"><i class="fas fa-share-alt"></i></a>
                 </td>
                 <td><a href="<?php echo route('teacher') ?>/update/<?php echo $teacher->id ?>" class="btn btn-warning btn-sm"><i class="far fa-edit"></i></a>
                 </td>
