@@ -10253,7 +10253,7 @@
         }
         
         .bg-gradient-primary {
-            background-color: #810611!important;
+            background-color: #e3b121!important;
             /* background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
     background-size: cover */
         }
@@ -11666,7 +11666,7 @@
         }
         
         .navbar-header {
-            background: #ab0b19;
+            background: #dda400;
         }
         
         .navbar-submenu {
@@ -11674,5 +11674,5 @@
         }
         
         .collapse-inner {
-            background: #ab0b19 !important;
+            background: #dda400 !important;
         }
