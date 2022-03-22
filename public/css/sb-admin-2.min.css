@@ -10661,11 +10661,11 @@
         }
         
         .topbar.navbar-light .navbar-nav .nav-item .nav-link {
-            color: #d1d3e2
+            color: #fff;
         }
         
         .topbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
-            color: #b7b9cc
+            color: #fff;
         }
         
         .topbar.navbar-light .navbar-nav .nav-item .nav-link:active {
