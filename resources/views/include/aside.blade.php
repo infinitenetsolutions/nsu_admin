@@ -5,8 +5,8 @@
         <!-- Sidebar - Brand -->
         <a class="align-items-center justify-content-center" href="{{ route('dashboard') }}">
 
-            <div class="">
-                <x-application-logo class="" /> <sup>2</sup>
+            <div class="text-center">
+                <x-application-logo class="" style="width:150px!important;"/> <sup></sup>
             </div>
         </a>
 
