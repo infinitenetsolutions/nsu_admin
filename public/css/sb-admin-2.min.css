@@ -11049,11 +11049,11 @@
         }
         
         .sidebar-dark .nav-item .nav-link {
-            color: rgba(255, 255, 255, .8)
+            color: #fff;
         }
         
         .sidebar-dark .nav-item .nav-link i {
-            color: rgba(255, 255, 255, .3)
+            color: #fff;
         }
         
         .sidebar-dark .nav-item .nav-link:active,
