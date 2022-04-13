@@ -14,7 +14,7 @@ class GovbodyController extends Controller
      */
     public function index()
     {
-        $govbody = DB::table('govbody')->paginate(10);
+        $govbody = DB::table('govbody')->get();
         return view('govbody.index', ['data' => $govbody]);
     }
 

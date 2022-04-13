@@ -104,7 +104,7 @@
                                                 <tr>
 
 
-                                                    <td> {{ $loop->iteration + $data->firstItem() - 1 }}
+                                                    <td> {{ $loop->iteration  }}
 
                                                     <td> {{ $govbodys->name }} </td>
                                                     <td> {{ $govbodys->designation }} </td>
