@@ -59,12 +59,12 @@
                                                         class="form-control" placeholder="Title">
 
                                                 </div>
-                                                <div class="form-group col-sm-4">
-                                                    <label for="" class="text-dark"> <b>sub_title</b> </label>
-                                                    <input value="{{ $data->sub_title }}" required name="sub_title"
-                                                        type="text" class="form-control" placeholder="sub_title">
+                                                <!-- <div class="form-group col-sm-4">
+                                                    <label for="" class="text-dark"> <b>sub_title</b> </label> -->
+                                                    <input value="{{ $data->sub_title }}"  required name="sub_title"
+                                                        type="hidden" value="Netaji Subhas Univerty" class="form-control" placeholder="sub_title">
 
-                                                </div>
+                                                <!-- </div> -->
                                                 <div class="form-group col-sm-4">
                                                     <label for="" class="text-dark"> <b>image</b> </label>
                                                     <div class="row">

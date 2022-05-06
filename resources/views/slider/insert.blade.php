@@ -19,50 +19,40 @@
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>Title</b> </label>
                                 <input required name="title" type="text" class="form-control" placeholder="Title">
-
                             </div>
-                            <div class="form-group col-sm-4">
-                                <label for="" class="text-dark"> <b>sub_title</b> </label>
-                                <input required name="sub_title" type="text" class="form-control"
+                            <!-- <div class="form-group col-sm-4">
+                                <label for="" class="text-dark"> <b>sub_title</b> </label> -->
+                                <input required name="sub_title" type="hidden"  value="Netaji Subhas Univerty" class="form-control"
                                     placeholder="sub_title">
-
-                            </div>
+                            <!-- </div> -->
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>image_name</b> </label>
                                 <input required name="image_name" type="file" class="form-control"
                                     placeholder="image_name">
-
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>Image Link</b> </label>
                                 <input required name="virtual_image_name" type="text" class="form-control"
-                                    placeholder="virtual_image_name	">
-
+                                    placeholder="Image Link">
                             </div>
-
-
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>status</b> </label>
                                 <select required name="is_deleted" type="text" class="form-control"
                                     placeholder="Title">
                                     <option value="1">Active</option>
-
                                     <option value="0">Deactive</option>
-
                                 </select>
                             </div>
                             <div class="form-group col-sm-12">
                                 <label for="" class="text-dark"> <b>Description</b> </label>
                                 <textarea required name="description" type="text" class="form-control"
                                     placeholder="description"></textarea>
-
                             </div>
                         </div>
                     </div>
                     <hr>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Submit</button>
-
                     </div>
                 </form>
             </div>

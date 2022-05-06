@@ -132,3 +132,9 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
+
+    <style>
+        th:nth-child(3), td:nth-child(3){
+            display: none;
+        }
+    </style>
