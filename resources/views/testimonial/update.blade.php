@@ -1,5 +1,5 @@
 <x-layout>
-    @slot('title', 'table')
+    @slot('title', 'Testimonial')
     @slot('body')
 
 
