@@ -18,7 +18,7 @@
                             @csrf
 
                             <div class="form-group col-sm-4">
-                                <label for="" class="text-dark"> <b>Event Name</b> </label>
+                                <label for="" class="text-dark"> <b>Notice Name</b> </label>
                                 <input required name="name" type="text" class="form-control" placeholder="Name of the event ex- Admission Fair Spring">
 
                             </div>

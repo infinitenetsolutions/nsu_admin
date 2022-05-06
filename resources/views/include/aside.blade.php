@@ -48,7 +48,7 @@
             </a>
             <div id="collapsehome" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="{{ route('header') }}">Header</a>
+                    <!-- <a class="collapse-item" href="{{ route('header') }}">Header</a> -->
                     <a class="collapse-item" href="{{ route('slider') }}">Slider</a>
                     <a class="collapse-item" href="{{ route('noticeboard') }}">Notice Board</a>
 
