@@ -57,3 +57,7 @@
     </x-auth-card>
 
 </x-guest-layout>
+
+<script>
+    document.title="Netaji Subhas University - Admin Panel"
+</script>
