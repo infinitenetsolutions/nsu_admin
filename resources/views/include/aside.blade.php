@@ -130,7 +130,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ route('teacher') }}">Teachers</a>
                     <a class="collapse-item" href="{{ route('affiliated') }}">Affiliated</a>
-                    <a class="collapse-item" href="{{ route('govbody') }}">Goverment body</a>
+                    <a class="collapse-item" href="{{ route('govbody') }}">Governing body</a>
 
                 </div>
             </div>
