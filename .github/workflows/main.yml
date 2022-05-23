@@ -15,3 +15,4 @@ jobs:
         server: 35.154.228.131
         username:    ftpadmin
         password: ${{ secrets.ftp_password1 }}
+# change
