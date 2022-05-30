@@ -1,18 +1,13 @@
 <x-layout>
     @slot('title', 'Teachers')
     @slot('body')
-
-
         <!-- Page Wrapper -->
         <div id="wrapper">
-
             @include('include.aside')
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
-
                 <!-- Main Content -->
                 <div id="content">
-
                     <!-- Topbar -->
                     @include('include.navbar')
                     <!-- End of Topbar -->
@@ -88,6 +83,7 @@
                                                 <th>Name </th>
                                                 <th>Desingnation </th>
                                                 <th>emailid</th>
+                                                <th>Prarity</th>
                                                 <th>resume</th>
                                                 <th>Images </th>
                                                 <th>Social</th>
@@ -103,6 +99,7 @@
                                                 <th>Name </th>
                                                 <th>Desingnation </th>
                                                 <th>emailid</th>
+                                                <th>Prarity</th>
                                                 <th>resume</th>
                                                 <th>Images </th>
                                                 <th>Social</th>
@@ -113,14 +110,22 @@
                                         </tfoot>
                                         <tbody id="data">
                                             @foreach ($data as $slider)
+                                                <?php $j = 1; ?>
                                                 <tr>
-
-
                                                     <td> {{ $loop->iteration + $data->firstItem() - 1 }}
 
                                                     <td> {{ $slider->name }} </td>
                                                     <td> {{ $slider->designation }} </td>
                                                     <td> {{ $slider->emailid }} </td>
+
+                                                    <td> <select onchange="prarity(this.value,{{ $slider->id }})">
+                                                            <option value="{{ $slider->prarity }}">
+                                                                {{ $slider->prarity }}</option>
+                                                            <?php foreach ($total_teachers as $d) {
+                                                                echo '<option value="' . $j . '">' . $j . '</option>';
+                                                      $j++;   }  ?>
+                                                        </select> </td>
+
                                                     <td> <a href="{{ asset('upload/teacher/' . $slider->resume) }}"
                                                             target="_blank">
                                                             <object
@@ -128,7 +133,6 @@
                                                                 type="application/pdf" width="100" height="100">
 
                                                             </object></a></td>
-
                                                     <td><img width="100"
                                                             src="{{ asset('upload/teacher/' . $slider->image_name) }}">
                                                     </td>
@@ -146,43 +150,34 @@
                                                                 class="fas fa-trash-alt"></i></a>
                                                     </td>
                                                     <td><a href="{{ route('teacher') }}/status/{{ $slider->id }}"
-                                                            class="btn @if ($slider->is_deleted == 1)
-                                                                btn-success
-                                                                @endif btn-secondary  btn-sm">
-                                                            @if ($slider->is_deleted == 1) Active @else Deactive @endif</a>
+                                                            class="btn @if ($slider->is_deleted == 1) btn-success @endif btn-secondary  btn-sm">
+                                                            @if ($slider->is_deleted == 1)
+                                                                Active
+                                                            @else
+                                                                Deactive
+                                                            @endif
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    {{ $data->onEachSide(-1)->links() }}
-
+                                    {{ $data->onEachSide(1)->links() }}
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <!-- /.container-fluid -->
-
                 </div>
-
             </div>
-
         </div>
         <!-- Scroll to Top Button-->
-
-
-
     @endslot
 </x-layout>
-
-
-
 <!-- Page level plugins -->
 <script src="vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-
 <!-- Page level custom scripts -->
 <script src="js/demo/datatables-demo.js"></script>
 <style>
@@ -192,23 +187,33 @@
 
 </style>
 <script>
-    function searchData(data) {
-        console.log(data)
+    function prarity(data,id) {
         $.ajax({
+            url: "{{ route('teacher.prarity') }}",
+            data: {
+                'data': data,
+                'id': id
+            },
+            type: 'GET',
+            success: function(result) {
+               
+            }
+        });
+    }
 
+    function searchData(data, id) {
+        $.ajax({
             url: "{{ route('teacher.search') }}",
             data: {
                 'data': data
             },
             type: 'GET',
             success: function(result) {
-
                 $('#data').html(result);
             }
         });
     }
     $('#dataTable').DataTable({
         "paging": false // false to disable pagination (or any other option)
-
     });
 </script>

@@ -19,8 +19,9 @@ class TeacherController extends Controller
         //     DB::table('categorie')->where('id',$i)->update(['image_name'=>'76587465847'.$i.'.jpg']);
         // }
 
-        $teacher = DB::table('faculty_tbl')->paginate(10);
-        return view('teacher.index', ['data' => $teacher,  'url' => $this->slider_url()]);
+        $teacher = DB::table('faculty_tbl')->orderBy('prarity', 'ASC')->paginate(10);
+        $total_teachers = DB::table('faculty_tbl')->get();
+        return view('teacher.index', ['data' => $teacher,  'url' => $this->slider_url(), 'total_teachers' => $total_teachers]);
     }
 
     /**
@@ -28,9 +29,10 @@ class TeacherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function prarity(Request $request)
     {
-        //
+        DB::table('faculty_tbl')->where('prarity', $request->data)->update(['prarity' => $request->data + 1]);
+        DB::table('faculty_tbl')->where('id', $request->id)->update(['prarity' => $request->data]);
     }
 
     /**
@@ -154,9 +156,12 @@ class TeacherController extends Controller
     function searchData(Request $request)
     {
         $input =  $request->data;
+        $total_teachers = DB::table('faculty_tbl')->get();
         $data = DB::table('faculty_tbl')->orWhere('name', 'like', '%' . $input . '%')->orWhere('designation', 'like', '%' . $input . '%')->orWhere('emailid', 'like', '%' . $input . '%')->orWhere('description', 'like', '%' . $input . '%')->get();
         $i = 1;
+
         foreach ($data as $teacher) {
+            $j = 1;
 ?>
             <tr>
 
@@ -166,6 +171,12 @@ class TeacherController extends Controller
                 <td> <?php echo $teacher->name ?> </td>
                 <td> <?php echo $teacher->designation ?> </td>
                 <td> <?php echo $teacher->emailid ?> </td>
+                <td> <select onchange="prarity(this.value)"> 
+                 <option value="<?php echo $teacher->prarity ?>"><?php echo $teacher->prarity ?></option> 
+
+                <?php foreach ($total_teachers as $d) {
+                                                                    echo '<option value="' . $j . '">' . $j . '</option>';
+                                                               $j++; } ?> </select> </td>
                 <td> <a href="<?php echo  asset('upload/teacher/' . $teacher->resume)  ?>" target="_blank">
                         <object data="<?php echo  asset('upload/teacher/' . $teacher->resume)  ?>" type="application/pdf" width="100" height="100">
 

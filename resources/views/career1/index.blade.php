@@ -93,7 +93,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                {{ $data->onEachSide(-1)->links() }}
+                                {{ $data->onEachSide(1)->links() }}
 
                             </div>
                         </div>

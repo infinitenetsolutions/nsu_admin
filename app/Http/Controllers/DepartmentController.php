@@ -232,6 +232,7 @@ class DepartmentController extends Controller
         $input =  $request->data;
         $data = DB::table('course_tbl')->orWhere('course', 'like', '%' . $input . '%')->orWhere('program', 'like', '%' . $input . '%')->orWhere('discipline', 'like', '%' . $input . '%')->orWhere('fee', 'like', '%' . $input . '%')->get();
         $i = 1;
+        $j=1;
         foreach ($data as $department) {
 ?>
             <tr>
@@ -240,9 +241,11 @@ class DepartmentController extends Controller
                 <td> <?php echo $i;  ?> </td>
 
                 <td> <?php echo $department->course ?> </td>
+                <td> <?php echo $department->fullform ?> </td>
                 <td> <?php echo $department->program ?> </td>
                 <td> <?php echo $department->fee ?> </td>
-
+                <td> <?php echo $department->duration ?> Years </td>
+              
                 <td>
                     <img width="100" src="<?php echo asset('upload/department/' . $department->images) ?>" alt="lol" />
 

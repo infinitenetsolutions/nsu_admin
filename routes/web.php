@@ -170,6 +170,7 @@ Route::get('teacher/status/{id}', [TeacherController::class, 'status'])->middlew
 Route::get('teacher/update/{id}', [TeacherController::class, 'edit'])->middleware('auth')->name('teacher.edit');
 Route::post('teacher/update', [TeacherController::class, 'update'])->middleware('auth')->name('teacher.update');
 Route::get('teacher/search', [TeacherController::class, 'searchData'])->middleware('auth')->name('teacher.search');
+Route::get('teacher/prarity', [TeacherController::class, 'prarity'])->middleware('auth')->name('teacher.prarity');
 
 // End teachers
 
