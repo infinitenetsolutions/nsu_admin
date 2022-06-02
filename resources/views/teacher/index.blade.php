@@ -83,7 +83,7 @@
                                                 <th>Name </th>
                                                 <th>Desingnation </th>
                                                 <th>emailid</th>
-                                                <th>Prarity</th>
+                                                <th>Priority</th>
                                                 <th>resume</th>
                                                 <th>Images </th>
                                                 <th>Social</th>
