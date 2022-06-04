@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
+
 class AppointmentController extends Controller
 {
 
@@ -47,11 +48,17 @@ class AppointmentController extends Controller
             $image_name1 = $request->file('image_name2');
             $destinationPath = 'upload/appointment/';
             $img_header = date('YmdHis') . '1' . "." . $header_image->getClientOriginalExtension();
-            $img_name = date('YmdHis') . '2' . ".jpg" ;
-            $img_name1 = date('YmdHis') . '3' . ".jpg"; 
+            $img_name = date('YmdHis') . '2' . ".jpg";
+            $img_name1 = date('YmdHis') . '3' . ".jpg";
             $header_image->move($destinationPath, $img_header);
-            // $image_name->move($destinationPath, $img_name);
-            // $image_name1->move($destinationPath, $img_name1);
+            if ($image_name != '') {
+                $img_name = date('YmdHis') . '2' . ".".$image_name->getClientOriginalExtension();
+                $image_name->move($destinationPath, $img_name);
+            }
+            if ($image_name1 != '') {
+                $img_name1 = date('YmdHis') . '2' . ".".$image_name1->getClientOriginalExtension();
+                $image_name1->move($destinationPath, $img_name1);
+            }
 
             DB::table('appointment_tbl')
                 ->where('id', $id)
@@ -109,7 +116,7 @@ class AppointmentController extends Controller
             $appointment_image = DB::table('appointment_tbl')->find($id);
             $appointment_image = $appointment_image->image_name;
             $image = $request->file('image_name');
-            
+
             $destinationPath = 'upload/appointment/';
             $image->move($destinationPath, $appointment_image);
         }
