@@ -6,7 +6,7 @@
         <a class="align-items-center justify-content-center" href="{{ route('dashboard') }}">
 
             <div class="text-center">
-                <x-application-logo class="" style="width:150px!important;"/> <sup></sup>
+                <x-application-logo class="" style="width:150px!important;" /> <sup></sup>
             </div>
         </a>
 
@@ -51,7 +51,6 @@
                     <!-- <a class="collapse-item" href="{{ route('header') }}">Header</a> -->
                     <a class="collapse-item" href="{{ route('slider') }}">Slider</a>
                     <a class="collapse-item" href="{{ route('noticeboard') }}">Notice Board</a>
-
                     <a class="collapse-item" href="{{ route('events') }}"> Events</a>
                     <a class="collapse-item" href="{{ route('testimonial') }}">Testimonial</a>
                     <a class="collapse-item" href="{{ route('latestnews') }}">Latest News</a>
@@ -85,19 +84,34 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ route('studentpdf') }}">Student</a>
                     <a class="collapse-item" href="{{ route('aboutpdf') }}">About</a>
-
                 </div>
+            </div>
         </li>
+
+        <li class="nav-item">
+            {{-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#student"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-file-alt"></i>
+                <span> Student </span>
+            </a>
+            <div id="student" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('alumni') }}">Alumni</a>
+            
+                </div>
+            </div>
+        </li> --}}
+
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsedepartment"
                 aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-ethernet"></i>
                 <span>Department</span>
             </a>
-            <div id="collapsedepartment" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapsedepartment" class="collapse" aria-labelledby="headingTwo"
+                data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ route('program') }}">Program</a>
-
                     <a class="collapse-item" href="{{ route('department') }}">Department</a>
                 </div>
             </div>
@@ -126,7 +140,8 @@
                 <i class="fas fa-building"></i>
                 <span>University</span>
             </a>
-            <div id="collapseuniversity" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapseuniversity" class="collapse" aria-labelledby="headingTwo"
+                data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ route('teacher') }}">Teachers</a>
                     <a class="collapse-item" href="{{ route('affiliated') }}">Affiliated</a>
@@ -142,7 +157,8 @@
                 <i class="fas fa-images"></i>
                 <span>Gallery</span>
             </a>
-            <div id="collapsegallery" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapsegallery" class="collapse" aria-labelledby="headingTwo"
+                data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ route('album') }}">Album</a>
 
@@ -159,7 +175,8 @@
                 <i class="fas fa-images"></i>
                 <span>Transport</span>
             </a>
-            <div id="collapsetransport" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapsetransport" class="collapse" aria-labelledby="headingTwo"
+                data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ route('route') }}">Route </a>
                     <a class="collapse-item" href="{{ route('transports') }}">Transport </a>
@@ -173,7 +190,8 @@
                 <i class="fas fa-user"></i>
                 <span>Career</span>
             </a>
-            <div id="collapsecareer" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapsecareer" class="collapse" aria-labelledby="headingTwo"
+                data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <a class="collapse-item" href="{{ route('career') }}">Add Career</a>
 

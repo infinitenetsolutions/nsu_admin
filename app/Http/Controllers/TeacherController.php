@@ -171,7 +171,7 @@ class TeacherController extends Controller
                 <td> <?php echo $teacher->name ?> </td>
                 <td> <?php echo $teacher->designation ?> </td>
                 <td> <?php echo $teacher->emailid ?> </td>
-                <td> <select onchange="prarity(this.value)"> 
+                <td> <select onchange="prarity(this.value,<?= $teacher->id ?>)"> 
                  <option value="<?php echo $teacher->prarity ?>"><?php echo $teacher->prarity ?></option> 
 
                 <?php foreach ($total_teachers as $d) {
