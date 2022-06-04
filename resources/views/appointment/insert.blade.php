@@ -69,6 +69,7 @@
                                     <option value="0">Deactive</option>
                                 </select>
                             </div>
+                            <input type="hidden" name="description" value="description" >
                             {{-- <div class="form-group col-sm-12">
                                 <label for="" class="text-dark"> <b>Description</b> </label>
                                 <textarea required name="description" type="text" class="ckeditor form-control"
