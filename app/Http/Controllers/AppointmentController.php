@@ -41,17 +41,17 @@ class AppointmentController extends Controller
 
         $id =   DB::table('appointment_tbl')->insertGetId($request->except('_token'));
 
-        if ($request->file('image_name') && $request->file('image_name1') && $request->file('image_name2')) {
+        if ($request->file('image_name') || $request->file('image_name1') || $request->file('image_name2')) {
             $header_image = $request->file('image_name');
             $image_name = $request->file('image_name1');
             $image_name1 = $request->file('image_name2');
             $destinationPath = 'upload/appointment/';
             $img_header = date('YmdHis') . '1' . "." . $header_image->getClientOriginalExtension();
-            $img_name = date('YmdHis') . '2' . "." . $image_name->getClientOriginalExtension();
-            $img_name1 = date('YmdHis') . '3' . "." . $image_name1->getClientOriginalExtension();
+            $img_name = date('YmdHis') . '2' . ".jpg" ;
+            $img_name1 = date('YmdHis') . '3' . ".jpg"; 
             $header_image->move($destinationPath, $img_header);
-            $image_name->move($destinationPath, $img_name);
-            $image_name1->move($destinationPath, $img_name1);
+            // $image_name->move($destinationPath, $img_name);
+            // $image_name1->move($destinationPath, $img_name1);
 
             DB::table('appointment_tbl')
                 ->where('id', $id)
