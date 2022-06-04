@@ -66,17 +66,15 @@
                                 <label for="" class="text-dark"> <b>Status</b> </label>
                                 <select required name="is_deleted" type="text" class="form-control" placeholder="Title">
                                     <option value="1">Active</option>
-
                                     <option value="0">Deactive</option>
-
                                 </select>
                             </div>
-                            <div class="form-group col-sm-12">
+                            {{-- <div class="form-group col-sm-12">
                                 <label for="" class="text-dark"> <b>Description</b> </label>
                                 <textarea required name="description" type="text" class="ckeditor form-control"
                                     placeholder="description"></textarea>
 
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <hr>
