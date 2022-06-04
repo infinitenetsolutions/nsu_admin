@@ -50,13 +50,13 @@
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b> Appointment Image 1 </b> </label>
-                                <input required name="image_name1" accept="image/*" type="file" class="form-control"
+                                <input  name="image_name1" accept="image/*" type="file" class="form-control"
                                     placeholder="Appointment Letter Image ">
 
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b> Appointment Letter (in <i class="fas fa-file-pdf  text-danger" aria-hidden="true"></i>)</b> </label>
-                                <input required name="image_name2" accept="application/pdf" type="file" class="form-control"
+                                <input  name="image_name2" accept="application/pdf" type="file" class="form-control"
                                     placeholder="Appointment Letter Image ">
 
                             </div>
