@@ -133,7 +133,7 @@ class AppointmentController extends Controller
         $result = DB::table('appointment_tbl')
             ->where('id', $request->id)
             ->update($request->except(['_token', 'id', 'image_name', 'image_name1', 'image_name2']));
-        return redirect('appointment')->with('update', 'Data successfully updated');
+        return redirect()->route('appointment')->with('update', 'Data successfully updated');
     }
 
     /**
