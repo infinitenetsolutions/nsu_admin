@@ -3,82 +3,103 @@
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="text-center"> STUDENT ALUMNI
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</b></label></button>
 
-            <div class="modal-header text-center">
-                <h5 class="modal-title text-dark " id="exampleModalLongTitle"> Add Testimonial</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
             </div>
-            <div class="modal-body">
-                <form action="{{ route('testimonial.insert') }}" method="POST" enctype="multipart/form-data">
-                    <div class="container">
-                        <div class="row">
-                            @csrf
-                            <div class="form-group col-sm-4">
-                                <label for="" class="text-dark"> <b>Name</b> </label>
-                                <input required name="testimonial_name" type="text" class="form-control"
-                                    placeholder="Name">
-
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label for="" class="text-dark"> <b>Course</b> </label>
-                                <input required name="testimonial_course" type="text" class="form-control"
-                                    placeholder="Course">
-
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label for="" class="text-dark"> <b>Batch</b> </label>
-                                <input required name="testimonial_batch" type="text" class="form-control"
-                                    placeholder="Batch">
-
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label for="" class="text-dark"> <b> Designation </b> </label>
-                                <input required name="testimonial_desig" type="text" class="form-control"
-                                    placeholder="Designation	">
-
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label for="" class="text-dark"> <b> Company </b> </label>
-                                <input required name="testimonial_company" type="text" class="form-control"
-                                    placeholder="Company	">
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label for="" class="text-dark"> <b> Images </b> </label>
-                                <input required name="testimonial_image" type="file" class="form-control"
-                                    placeholder="Images	">
-
-                            </div>
-
-
-
-                            <div class="form-group col-sm-4">
-                                <label for="" class="text-dark"> <b>status</b> </label>
-                                <select required name="is_deleted" type="text" class="form-control"
-                                    placeholder="Title">
-                                    <option value="1">Active</option>
-
-                                    <option value="0">Deactive</option>
-
-                                </select>
-                            </div>
-                            <div class="form-group col-sm-12">
-                                <label for="" class="text-dark"> <b>Description</b> </label>
-                                <textarea required name="message" type="text" class="form-control ckeditor"
-                                    placeholder="description"></textarea>
-
-                            </div>
+            <div class="modal-body text">
+                <form action="{{ route('alumni.insert') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label><b>Registration Number</b></label>
+                            <input required class="form-control" onkeyup="check_id(this.value)" id="reg_no"
+                                name="reg_no" placeholder="Enter Name" type="text">
                         </div>
-                    </div>
-                    <hr>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="form-group col-sm-4">
+                            <label><b>Phone Number</b></label>
+                            <input required class="form-control" id="phone" name="phone" placeholder="Enter Name"
+                                type="text">
+                        </div>
 
+                        <div class="form-group col-sm-4">
+                            <label><b>Name</b></label>
+                            <input required class="form-control" id="testimonial_name" name="testimonial_name"
+                                placeholder="Enter Name" type="text">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label><b>Course</b></label>
+                            <input required class="form-control" id="testimonial_course" name="testimonial_course"
+                                placeholder="Enter Course" type="text">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label><b>Batch Year</b></label>
+                            <input required class="form-control" id="testimonial_batch" name="testimonial_batch"
+                                placeholder="Enter Batch Year" type="text">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label><b>Current Designation</b></label>
+                            <input required class="form-control" id="testimonial_desig" name="testimonial_desig"
+                                placeholder="Enter Current Designation" type="text">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label><b>Company Currently Working</b></label>
+                            <input required class="form-control" id="testimonial_company" name="testimonial_company"
+                                placeholder="Enter Current Company" type="text">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label><b>Upload Image</b></label>
+                            <input required class="form-control" id="testimonial_image" name="testimonial_image"
+                                type="file" accept="image/*">
+                            <small class="form-text text-muted" id="image_err">Please upload your image. </small>
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label><b> Status </b></label>
+                            <select class="form-control" name="is_deleted" id="">
+                                <option value="1">Active</option>
+                                <option value="0">Deactive</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <label for="message">Message</b></label>
+                            <textarea class="form-control" rows="5" id="message" name="message" placeholder="Message"></textarea>
+                        </div>
+
+
+                    </div>
+                    <br>
+
+                    <div class="form-group text-center">
+                        <button id="testimonial_button" class="btn btn-primary btn-sm" type="submit">Send
+                            Message </button>
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
+
+    <script>
+        function check_id(mobile) {
+
+            id = document.getElementById('reg_no').value;
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                data = JSON.parse(this.responseText)
+                document.getElementById('testimonial_name').value = data.admission_first_name + " " + data
+                    .admission_middle_name + " " + data.admission_last_name;
+                document.getElementById('testimonial_batch').value = data.academic_session;
+                document.getElementById('testimonial_course').value = data.course_name;
+                mobile = document.getElementById('phone').value = data.admission_mobile_student;
+            }
+            xmlhttp.open("GET", "/alumni/api/" + id, true);
+            xmlhttp.send();
+
+        }
+    </script>
 </div>

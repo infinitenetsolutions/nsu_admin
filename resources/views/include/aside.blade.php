@@ -89,9 +89,9 @@
         </li>
 
         <li class="nav-item">
-            {{-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#student"
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#student"
                 aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-file-alt"></i>
+                <i class="fas fa-users"></i>
                 <span> Student </span>
             </a>
             <div id="student" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -100,7 +100,7 @@
             
                 </div>
             </div>
-        </li> --}}
+        </li>
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsedepartment"

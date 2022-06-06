@@ -1,37 +1,31 @@
 <x-layout>
     @slot('title', 'Testimonial')
     @slot('body')
-
-
         <!-- Page Wrapper -->
         <div id="wrapper">
-
             @include('include.aside')
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
-
                 <!-- Main Content -->
                 <div id="content">
-
                     <!-- Topbar -->
                     @include('include.navbar')
                     <!-- End of Topbar -->
                     {{-- adding the model --}}
-                    @include('testimonial.insert')
+                    @include('alumni.insert')
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-
                         <!-- Page Heading -->
                         <section class="content-header">
                             <div class="container-fluid">
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
-                                        <h2>Testimonial</h2>
+                                        <h2>Alumni</h2>
                                     </div>
                                     <div class="col-sm-6">
                                         <ol class="breadcrumb float-sm-right">
                                             <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                            <li class="breadcrumb-item active">Testimonial</li>
+                                            <li class="breadcrumb-item active">Alumni</li>
                                         </ol>
                                     </div>
                                 </div>
@@ -41,7 +35,7 @@
                         <div class="card shadow mb-4">
                             <div class="card-header py-3 row">
                                 <div class="col-6">
-                                    <h6 class="m-0 font-weight-bold text-primary">Testimonial </h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Alumni </h6>
                                 </div>
                                 <div class="col-6"> <button type="button"
                                         class="btn btn-primary btn-sm float-right " data-toggle="modal"
@@ -117,21 +111,29 @@
                                                     <td> {{ $slider->testimonial_course }} </td>
                                                     <td> {{ $slider->testimonial_desig }} </td>
                                                     <td> {{ $slider->testimonial_company }} </td>
-                                                    <td><img width="100"
-                                                            src="{{ asset('upload/testimonial/' . $slider->testimonial_image) }}">
+                                                    <td>
+                                                        @if (str_contains($data->testimonial_image, 'admin'))
+                                                            <img width="100"
+                                                                src="{{ asset('upload/alumni/' . $data->testimonial_image) }}"
+                                                                alt="" />
+                                                        @else
+                                                            <img width="100"
+                                                                src="{{ asset('upload/appointment/' . $data->testimonial_image) }}"
+                                                                alt="" />
+                                                        @endif
                                                     </td>
 
                                                     <td> {{ $slider->dom }} </td>
 
-                                                    <td><a href="{{ route('testimonial') }}/update/{{ $slider->id }}"
+                                                    <td><a href="{{ route('alumni') }}/update/{{ $slider->id }}"
                                                             class="btn btn-warning btn-sm"><i
                                                                 class="far fa-edit"></i></a>
                                                     </td>
-                                                    <td><a href="{{ route('testimonial') }}/delete/{{ $slider->id }}"
+                                                    <td><a href="{{ route('alumni') }}/delete/{{ $slider->id }}"
                                                             class="btn btn-danger btn-sm"><i
                                                                 class="fas fa-trash-alt"></i></a>
                                                     </td>
-                                                    <td><a href="{{ route('testimonial') }}/status/{{ $slider->id }}"
+                                                    <td><a href="{{ route('alumni') }}/status/{{ $slider->id }}"
                                                             class="btn @if ($slider->is_deleted == 1) btn-success @endif btn-secondary  btn-sm">
                                                             @if ($slider->is_deleted == 1)
                                                                 Active
@@ -147,19 +149,12 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <!-- /.container-fluid -->
-
                 </div>
-
             </div>
-
         </div>
         <!-- Scroll to Top Button-->
-
-
-
     @endslot
 </x-layout>
 

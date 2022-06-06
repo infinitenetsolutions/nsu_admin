@@ -47,89 +47,83 @@
 
                             </div>
                             <div class="card-body">
-                                <form action="{{ route('testimonial.update') }}" method="POST"
-                                    enctype="multipart/form-data">
-                                    <div class="container">
-                                        <div class="row">
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{ $data->id }}" id="">
+                                <form action="{{ route('alumni.update') }}" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    <input name="id" type="hidden" value="{{ $data->id }}">
+                                    <input type="hidden" name="dom" value="{{ date('Y-m-d h:m:s') }}">
+                                    <div class="row">
+                                        <div class="form-group col-sm-4">
+                                            <label><b>Registration Number</b></label>
+                                            <input readonly required class="form-control" value="{{ $data->reg_no }}"
+                                                onkeyup="check_id(this.value)" id="reg_no" name="reg_no"
+                                                placeholder="Enter Name" type="text">
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label><b>Phone Number</b></label>
+                                            <input value="{{ $data->phone }}" required class="form-control" id="phone"
+                                                name="phone" placeholder="Enter Name" type="text">
+                                        </div>
 
-                                            <div class="form-group col-sm-4">
-                                                <label for="" class="text-dark"> <b>Name</b> </label>
-                                                <input required name="testimonial_name" type="text" class="form-control"
-                                                    value="{{ $data->testimonial_name }}" placeholder="Name">
-
-                                            </div>
-                                            <div class="form-group col-sm-4">
-                                                <label for="" class="text-dark"> <b>Course</b> </label>
-                                                <input required name="testimonial_course" type="text" class="form-control"
-                                                    value="{{ $data->testimonial_course }}" placeholder="Course">
-
-                                            </div>
-                                            <div class="form-group col-sm-4">
-                                                <label for="" class="text-dark"> <b>Batch</b> </label>
-                                                <input required name="testimonial_batch" type="text" class="form-control"
-                                                    value="{{ $data->testimonial_batch }}" placeholder="Batch">
-
-                                            </div>
-                                            <div class="form-group col-sm-4">
-                                                <label for="" class="text-dark"> <b> Designation </b> </label>
-                                                <input required name="testimonial_desig" type="text" class="form-control"
-                                                    value="{{ $data->testimonial_desig }}" placeholder="Designation	">
-
-                                            </div>
-                                            <div class="form-group col-sm-4">
-                                                <label for="" class="text-dark"> <b> Company </b> </label>
-                                                <input required name="testimonial_company" type="text"
-                                                    value="{{ $data->testimonial_company }}" class="form-control"
-                                                    placeholder="Company	">
-
-                                            </div>
-                                            <div class="form-group col-sm-4">
-                                                <label for="" class="text-dark"> <b> Images </b> </label>
-
-
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <input name="testimonial_image" type="file" class="form-control"
-                                                            placeholder="Images	">
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <img width="150"
-                                                            src="{{ asset('upload/testimonial/' . $data->testimonial_image) }}"
-                                                            alt="">
-
-                                                    </div>
-
+                                        <div class="form-group col-sm-4">
+                                            <label><b>Name</b></label>
+                                            <input value="{{ $data->testimonial_name }}" required class="form-control"
+                                                id="testimonial_name" name="testimonial_name" placeholder="Enter Name"
+                                                type="text">
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label><b>Course</b></label>
+                                            <input value="{{ $data->testimonial_course }}" required class="form-control"
+                                                id="testimonial_course" name="testimonial_course" placeholder="Enter Course"
+                                                type="text">
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label><b>Batch Year</b></label>
+                                            <input value="{{ $data->testimonial_batch }}" required class="form-control"
+                                                id="testimonial_batch" name="testimonial_batch"
+                                                placeholder="Enter Batch Year" type="text">
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label><b>Current Designation</b></label>
+                                            <input value="{{ $data->testimonial_desig }}" required class="form-control"
+                                                id="testimonial_desig" name="testimonial_desig"
+                                                placeholder="Enter Current Designation" type="text">
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label><b>Company Currently Working</b></label>
+                                            <input value="{{ $data->testimonial_company }}" required class="form-control"
+                                                id="testimonial_company" name="testimonial_company"
+                                                placeholder="Enter Current Company" type="text">
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <div class="row">
+                                                <div class="col-sm-6"> <label><b>Upload Image</b></label>
+                                                    <input value="{{ $data->testimonial_image }}" required
+                                                        class="form-control" id="testimonial_image"
+                                                        name="testimonial_image" type="file" accept="image/*">
+                                                    <small class="form-text text-muted" id="image_err">Please upload your
+                                                        image.
+                                                    </small>
                                                 </div>
+                                                <div class="col-sm-6">
+                                                    @if (str_contains($data->testimonial_image, 'admin')  )
+                                                    <img width="100" src="{{asset('upload/alumni/'.$data->testimonial_image)}}" alt="" />
+                                                   @else
+                                                   <img width="100" src="{{asset('upload/appointment/'.$data->testimonial_image)}}" alt="" />
 
-
-                                            </div>
-
-
-
-                                            <div class="form-group col-sm-4">
-                                                <label for="" class="text-dark"> <b>status</b> </label>
-                                                <select required name="is_deleted" type="text" class="form-control"
-                                                    placeholder="Title">
-                                                    <option value="1">Active</option>
-
-                                                    <option value="0">Deactive</option>
-
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-sm-12">
-                                                <label for="" class="text-dark"> <b>Description</b> </label>
-                                                <textarea required name="message" type="text" class="form-control ckeditor"
-                                                    placeholder="description">{{ $data->message }}</textarea>
-
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
+                                        <div class="form-group col-sm-12">
+                                            <label for="message">Message</b></label>
+                                            <textarea class="form-control" rows="5" id="message" name="message" placeholder="Message">{{ $data->message }}</textarea>
+                                        </div>
                                     </div>
-                                    <hr>
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    <br>
 
+                                    <div class="form-group text-center">
+                                        <button id="testimonial_button" class="btn btn-primary btn-sm" type="submit">Send
+                                            Message </button>
                                     </div>
                                 </form>
                             </div>
@@ -149,6 +143,21 @@
 
     @endslot
 
-
+    <script>
+        function check_id(mobile) {
+            id = document.getElementById('reg_no').value;
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                data = JSON.parse(this.responseText)
+                document.getElementById('testimonial_name').value = data.admission_first_name + " " + data
+                    .admission_middle_name + " " + data.admission_last_name;
+                document.getElementById('testimonial_batch').value = data.academic_session;
+                document.getElementById('testimonial_course').value = data.course_name;
+                mobile = document.getElementById('phone').value = data.admission_mobile_student;
+            }
+            xmlhttp.open("GET", "/alumni/api/" + id, true);
+            xmlhttp.send();
+        }
+    </script>
 
 </x-layout>

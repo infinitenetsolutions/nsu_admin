@@ -30,6 +30,7 @@ use App\Http\Controllers\TransportRouteController;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\AlumniCotroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -105,6 +106,17 @@ Route::get('student/delete/{id}', [StudentController::class, 'destroy'])->middle
 Route::get('student/status/{id}', [StudentController::class, 'status'])->middleware('auth')->name('student.status');
 Route::get('student/update/{id}', [StudentController::class, 'edit'])->middleware('auth')->name('student.edit');
 Route::post('student/update', [StudentController::class, 'update'])->middleware('auth')->name('student.update');
+
+Route::get('alumni', [AlumniCotroller::class, 'index'])->middleware('auth')->name('alumni');
+Route::post('alumni', [AlumniCotroller::class, 'store'])->middleware('auth')->name('alumni.insert');
+Route::get('alumni/delete/{id}', [AlumniCotroller::class, 'destroy'])->middleware('auth')->name('alumni.delete');
+Route::get('alumni/status/{id}', [AlumniCotroller::class, 'status'])->middleware('auth')->name('alumni.status');
+Route::get('alumni/update/{id}', [AlumniCotroller::class, 'edit'])->middleware('auth')->name('alumni.edit');
+Route::post('alumni/update', [AlumniCotroller::class, 'update'])->middleware('auth')->name('alumni.update');
+Route::get('alumni/api/{id}', [AlumniCotroller::class, 'alumni_api'])->middleware('auth')->name('alumni.api');
+
+
+
 
 Route::get('placement',  [PlacementController::class, 'index'])->middleware('auth')->name('placement');
 Route::post('placement', [PlacementController::class, 'store'])->middleware('auth')->name('placement.insert');
