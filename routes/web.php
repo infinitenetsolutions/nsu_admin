@@ -335,5 +335,4 @@ Route::post('categories/update', [categoriesController::class, 'update']);
 
 
 
-
 require __DIR__ . '/auth.php';

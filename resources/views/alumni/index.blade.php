@@ -71,7 +71,7 @@
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead class="text-dark">
-                                            <tr>
+                                          
                                             <tr>
                                                 <th>S.NO</th>
                                                 <th>Name </th>
@@ -84,7 +84,7 @@
                                                 <th>Action 2</th>
                                                 <th>Status</th>
                                             </tr>
-                                            </tr>
+                                          
                                         </thead>
                                         <tfoot class="text-dark">
                                             <tr>
@@ -101,41 +101,38 @@
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                            @foreach ($data as $slider)
+                                            @foreach ($data as $alumni)
                                                 <tr>
-
-
                                                     <td>{{ $loop->iteration }}</td>
-
-                                                    <td> {{ $slider->testimonial_name }} </td>
-                                                    <td> {{ $slider->testimonial_course }} </td>
-                                                    <td> {{ $slider->testimonial_desig }} </td>
-                                                    <td> {{ $slider->testimonial_company }} </td>
+                                                    <td> {{ $alumni->testimonial_name }} </td>
+                                                    <td> {{ $alumni->testimonial_course }} </td>
+                                                    <td> {{ $alumni->testimonial_desig }} </td>
+                                                    <td> {{ $alumni->testimonial_company }} </td>
                                                     <td>
-                                                        @if (str_contains($data->testimonial_image, 'admin'))
+                                                        @if (str_contains($alumni->testimonial_image, 'admin'))
                                                             <img width="100"
-                                                                src="{{ asset('upload/alumni/' . $data->testimonial_image) }}"
+                                                                src="{{ asset('upload/alumni/' . $alumni->testimonial_image) }}"
                                                                 alt="" />
                                                         @else
                                                             <img width="100"
-                                                                src="{{ asset('upload/appointment/' . $data->testimonial_image) }}"
+                                                                src="{{ $url.$alumni->testimonial_image }}"
                                                                 alt="" />
                                                         @endif
                                                     </td>
 
-                                                    <td> {{ $slider->dom }} </td>
+                                                    <td> {{ $alumni->dom }} </td>
 
-                                                    <td><a href="{{ route('alumni') }}/update/{{ $slider->id }}"
+                                                    <td><a href="{{ route('alumni') }}/update/{{ $alumni->id }}"
                                                             class="btn btn-warning btn-sm"><i
                                                                 class="far fa-edit"></i></a>
                                                     </td>
-                                                    <td><a href="{{ route('alumni') }}/delete/{{ $slider->id }}"
+                                                    <td><a href="{{ route('alumni') }}/delete/{{ $alumni->id }}"
                                                             class="btn btn-danger btn-sm"><i
                                                                 class="fas fa-trash-alt"></i></a>
                                                     </td>
-                                                    <td><a href="{{ route('alumni') }}/status/{{ $slider->id }}"
-                                                            class="btn @if ($slider->is_deleted == 1) btn-success @endif btn-secondary  btn-sm">
-                                                            @if ($slider->is_deleted == 1)
+                                                    <td><a href="{{ route('alumni') }}/status/{{ $alumni->id }}"
+                                                            class="btn @if ($alumni->is_deleted == 1) btn-success @endif btn-secondary  btn-sm">
+                                                            @if ($alumni->is_deleted == 1)
                                                                 Active
                                                             @else
                                                                 Deactive

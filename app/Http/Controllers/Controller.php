@@ -11,7 +11,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     function slider_url(){
-        return 'https://nsuniv.ac.in/Old_Nsuniv/upload/';
+        return 'http://35.154.228.131/public/upload/alumni/';
     }
     
 }

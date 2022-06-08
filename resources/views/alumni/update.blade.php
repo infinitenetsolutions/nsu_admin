@@ -105,12 +105,15 @@
                                                     </small>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    @if (str_contains($data->testimonial_image, 'admin')  )
-                                                    <img width="100" src="{{asset('upload/alumni/'.$data->testimonial_image)}}" alt="" />
-                                                   @else
-                                                   <img width="100" src="{{asset('upload/appointment/'.$data->testimonial_image)}}" alt="" />
-
-                                                    @endif
+                                                    @if (str_contains($data->testimonial_image, 'admin'))
+                                                    <img width="100"
+                                                        src="{{ asset('upload/alumni/' . $data->testimonial_image) }}"
+                                                        alt="" />
+                                                @else
+                                                    <img width="100"
+                                                        src="{{ $url . $data->testimonial_image }}"
+                                                        alt="" />
+                                                @endif
                                                 </div>
                                             </div>
                                         </div>
