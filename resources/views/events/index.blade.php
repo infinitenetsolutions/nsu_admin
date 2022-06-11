@@ -81,7 +81,7 @@
                                                     <th>S.NO</th>
                                                     <th>Event Name </th>
                                                     <th>Location  </th>
-                                                    <th>Imgage</th>
+                                                    <th>Image</th>
                                                     <th>Start Time </th>
                                                     <th>End Time </th>
                                                     <th>Action 1</th>
