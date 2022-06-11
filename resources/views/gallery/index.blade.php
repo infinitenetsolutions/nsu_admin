@@ -86,7 +86,7 @@
                                                 <th>S.NO</th>
 
                                                 <th>Album</th>
-                                                <th>Imgage</th>
+                                                <th>Image</th>
                                                 <th>Image Link </th>
                                                 <th>Action 1</th>
                                                 <th>Action 2</th>

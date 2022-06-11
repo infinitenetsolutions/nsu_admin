@@ -26,12 +26,12 @@
                                 <div class="container-fluid">
                                     <div class="row mb-2">
                                         <div class="col-sm-6">
-                                            <h2>program</h2>
+                                            <h2>Program</h2>
                                         </div>
                                         <div class="col-sm-6">
                                             <ol class="breadcrumb float-sm-right">
                                                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                                <li class="breadcrumb-item active">program</li>
+                                                <li class="breadcrumb-item active">Program</li>
                                             </ol>
                                         </div>
                                     </div>
@@ -41,7 +41,7 @@
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3 row">
                                     <div class="col-6">
-                                        <h6 class="m-0 font-weight-bold text-primary">program </h6>
+                                        <h6 class="m-0 font-weight-bold text-primary">Program </h6>
                                     </div>
                                     <div class="col-6"> <button type="button"
                                             class="btn btn-primary btn-sm float-right " data-toggle="modal"
@@ -81,7 +81,7 @@
                                                     <th>S.NO</th>
                                                     <th>Url Name </th>
                                                     <th>Program Name </th>
-                                                    <th>Imgage</th>
+                                                    <th>Image</th>
                                                     <th>Updated at </th>
                                                     <th>Action 1</th>
                                                     <th>Action 2</th>

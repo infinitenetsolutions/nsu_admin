@@ -89,7 +89,7 @@
                                                 <th>Program Name </th>
                                                 <th>Fee</th>
                                                 <th>Duration</th>
-                                                <th>Banner Imgage</th>
+                                                <th>Banner Image</th>
                                                 <th>Details</th>
                                                 <th>Action 1</th>
                                                 <th>Action 2</th>
@@ -104,7 +104,7 @@
                                                 <th>Program Name</th>
                                                 <th>Fee</th>
                                                 <th>Duration</th>
-                                                <th>Banner Imgage</th>
+                                                <th>Banner Image</th>
                                                 <th>Details</th>
                                                 <th>Action 1</th>
                                                 <th>Action 2</th>

@@ -81,7 +81,7 @@
                                                     <th>S.NO</th>
                                                     <th>Title </th>
                                                     <th>Sub Title </th>
-                                                    <th>Imgage</th>
+                                                    <th>Image</th>
                                                     <th>Image Link </th>
                                                     <th>Action 1</th>
                                                     <th>Action 2</th>
@@ -93,7 +93,7 @@
                                                     <th>S.NO</th>
                                                     <th>Title </th>
                                                     <th>Sub Title </th>
-                                                    <th>Imgage</th>
+                                                    <th>Image</th>
                                                     <th>Image Link </th>
                                                     <th>Action 1</th>
                                                     <th>Action 2</th>
