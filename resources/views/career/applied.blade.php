@@ -111,7 +111,7 @@
                                                     <td> {{ $career->phone ?? '' }} </td>
                                                     
                                                         <?php   $career_name = DB::table('career_tbl')->find($career->career_id); ?>
-                                                  <td>{{ " - ".$career_name->sub_title }} </td>
+                                                  <td>{{ $career_name->title ." - ".$career_name->sub_title }} </td>
 
 
                                                     <td> <a href="https://nsuniv.ac.in/nsularavel1/public/upload/career/{{ $career->resume ?? '' }}"
