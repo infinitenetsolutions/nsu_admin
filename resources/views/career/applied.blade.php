@@ -17,7 +17,6 @@
                     @include('include.navbar')
                     <!-- End of Topbar -->
                     {{-- adding the model --}}
-                    @include('career.insert')
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
 
@@ -43,10 +42,10 @@
                                 <div class="col-6">
                                     <h6 class="m-0 font-weight-bold text-primary">Career </h6>
                                 </div>
-                                <div class="col-6"> <button type="button"
+                                {{-- <div class="col-6"> <button type="button"
                                         class="btn btn-primary btn-sm float-right " data-toggle="modal"
                                         data-target=".bd-example-modal-lg">Add</button>
-                                </div>
+                                </div> --}}
                             </div>
                             @if (session('store'))
                                 <div class="alert alert-success">
@@ -112,25 +111,27 @@
                                                     <td> {{ $career->phone ?? '' }} </td>
                                                     <?php $career_name = DB::table('career_tbl')->find($career->career_id) ?? ''; ?>
 
-                                                    <td> {{ $career_name->sub_title }} </td>
 
-                                                    <td> <a href="https://nsuniv.ac.in/nsularavel1/public/upload/career/{{$career->resume ?? '' }}"
+                                                    <td> <a href="https://nsuniv.ac.in/nsularavel1/public/upload/career/{{ $career->resume ?? '' }}"
                                                             target="_blank">
                                                             <object
-                                                                data="https://nsuniv.ac.in/nsularavel1/public/upload/career/{{$career->resume ?? '' }}"
+                                                                data="https://nsuniv.ac.in/nsularavel1/public/upload/career/{{ $career->resume ?? '' }}"
                                                                 type="application/pdf" width="100" height="100">
 
                                                             </object></a></td>
 
-                                                    <td><a href="{{ route('career_destroy.delete',$career->id ) }}"
+                                                    <td><a href="{{ route('career_destroy.delete', $career->id) }}"
                                                             class="btn btn-danger btn-sm"><i
                                                                 class="fas fa-trash-alt"></i></a>
                                                     </td>
-                                                    <td><a href="{{ route('career_status.status',$career->id) }}"
-                                                            class="btn @if ($career->status == 'accept')
-                                                                    btn-success
-                                                                    @endif btn-secondary  btn-sm">
-                                                            @if ($career->status == 'accept') Accepted @else Pandding @endif</a>
+                                                    <td><a href="{{ route('career_status.status', $career->id) }}"
+                                                            class="btn @if ($career->status == 'accept') btn-success @endif btn-secondary  btn-sm">
+                                                            @if ($career->status == 'accept')
+                                                                Accepted
+                                                            @else
+                                                                Pandding
+                                                            @endif
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             @endforeach
