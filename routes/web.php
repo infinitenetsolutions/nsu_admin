@@ -157,6 +157,7 @@ Route::post('department/update', [DepartmentController::class, 'update'])->middl
 Route::get('department/details/{id}', [DepartmentController::class, 'editDetails'])->middleware('auth')->name('department.details');
 Route::post('department/details/', [DepartmentController::class, 'storeDetails'])->middleware('auth')->name('department.details.store');
 Route::get('department/search/', [DepartmentController::class, 'searchData'])->middleware('auth')->name('department.search');
+Route::get('department/delete/file/{file}', [DepartmentController::class, 'delete_course_file'])->middleware('auth')->name('department.delete.file');
 
 
 // End Department

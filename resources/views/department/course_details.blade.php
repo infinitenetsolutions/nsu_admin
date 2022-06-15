@@ -93,11 +93,15 @@
                                                 </select>
                                             </div>
                                             <div class="form-group col-sm-4">
-                                                <label for="" class="text-dark"> <b>Syllabus(Hons)</b> </label>
+                                                <label for="" class="text-dark"> <b>Syllabus(Hons) @if ($data->syllabus != '')
+                                                            <a class="text-danger"
+                                                                href="{{ route('department.delete.file', $data->syllabus) }}"><i
+                                                                    class="fas fa-trash-alt"></i> </a>
+                                                        @endif </b> </label>
 
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                       <input name="syllabus" type="file" accept="application/pdf"
+                                                        <input name="syllabus" type="file" accept="application/pdf"
                                                             class="form-control" placeholder="syllabus">
                                                     </div>
 
@@ -115,11 +119,19 @@
 
                                             </div>
                                             <div class="form-group col-sm-4">
-                                                <label for="" class="text-dark"> <b>Syllabus(Genral - optional )</b> </label>
+                                                <label for="" class="text-dark"> <b>Syllabus(Genral - optional )
+                                                        @if ($data->syllabus1 != '')
+                                                            <a class="text-danger"
+                                                                href="{{ route('department.delete.file', $data->syllabus1) }}"><i
+                                                                    class="fas fa-trash-alt"></i> </a>
+                                                        @endif
+
+                                                    </b>
+                                                </label>
 
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                       <input name="syllabus1" type="file" accept="application/pdf"
+                                                        <input name="syllabus1" type="file" accept="application/pdf"
                                                             class="form-control" placeholder="syllabus">
                                                     </div>
 
@@ -137,11 +149,17 @@
 
                                             </div>
                                             <div class="form-group col-sm-4">
-                                                <label for="" class="text-dark"> <b>Fee Schedule</b> </label>
+                                                <label for="" class="text-dark"> <b>Fee Schedule
+                                                        @if ($data->fee_schedule != '')
+                                                            <a class="text-danger"
+                                                                href="{{ route('department.delete.file', $data->fee_schedule) }}"><i
+                                                                    class="fas fa-trash-alt"></i> </a>
+                                                        @endif
+                                                    </b> </label>
 
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                       <input name="fee_schedule"
+                                                        <input name="fee_schedule"
                                                             value="{{ $data->fee_schedule ?? '' }}" type="file"
                                                             accept="application/pdf" class="form-control"
                                                             placeholder="fee_schedule">
@@ -162,12 +180,17 @@
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-4">
-                                                <label for="" class="text-dark"> <b>Guidelines(optional)</b> </label>
+                                                <label for="" class="text-dark"> <b>Guidelines(optional) 
+                                                    @if ($data->guidelines != '')
+                                                    <a class="text-danger"
+                                                        href="{{ route('department.delete.file', $data->guidelines) }}"><i
+                                                            class="fas fa-trash-alt"></i> </a>
+                                                @endif    
+                                                </b> </label>
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                       <input name="guidelines"
-                                                            value="{{ $data->guidelines ?? '' }}" type="file"
-                                                            accept="application/pdf" class="form-control"
+                                                        <input name="guidelines" value="{{ $data->guidelines ?? '' }}"
+                                                            type="file" accept="application/pdf" class="form-control"
                                                             placeholder="Title">
                                                     </div>
                                                     <div class="col-sm-6">
@@ -197,29 +220,25 @@
                                             </div>
                                             <div class="form-group col-sm-12">
                                                 <label for="" class="text-dark"> <b>About of Course</b> </label>
-                                                <textarea required name="about" id="about" class="form-control ckeditor"
-                                                    placeholder="About of Course"> {{ $data->about ?? '' }}</textarea>
+                                                <textarea required name="about" id="about" class="form-control ckeditor" placeholder="About of Course"> {{ $data->about ?? '' }}</textarea>
 
                                             </div>
                                             <div class="form-group col-sm-12">
                                                 <label for="" class="text-dark"> <b>Course Fee / Eligibility</b>
                                                 </label>
-                                                <textarea required name="fee" id="fee" class="form-control ckeditor"
-                                                    placeholder="fee">{{ $data->fee ?? '' }}</textarea>
+                                                <textarea required name="fee" id="fee" class="form-control ckeditor" placeholder="fee">{{ $data->fee ?? '' }}</textarea>
 
                                             </div>
-                                            <div  class="form-group col-sm-12">
+                                            <div class="form-group col-sm-12">
                                                 <label for="" class="text-dark"> <b>Course Offered / Career</b>
                                                 </label>
-                                                <textarea required name="offered" id="offered" class="form-control ckeditor"
-                                                    placeholder="offered">{{ $data->offered ?? '' }}</textarea>
+                                                <textarea required name="offered" id="offered" class="form-control ckeditor" placeholder="offered">{{ $data->offered ?? '' }}</textarea>
 
                                             </div>
                                             <div class="form-group col-sm-12">
                                                 <label for="" class="text-dark"> <b>Apply Online Instruction</b>
                                                 </label>
-                                                <textarea required name="apply" id="apply" class="form-control ckeditor"
-                                                    placeholder="apply">{{ $data->apply ?? '' }}</textarea>
+                                                <textarea required name="apply" id="apply" class="form-control ckeditor" placeholder="apply">{{ $data->apply ?? '' }}</textarea>
 
                                             </div>
                                         </div>

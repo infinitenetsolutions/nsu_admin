@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Throwable;
@@ -152,11 +153,8 @@ class DepartmentController extends Controller
                 $image = $request->file('syllabus');
                 $image_name1 = date('YmdHis') . "1." . $image->getClientOriginalExtension();
                 $image->move($destinationPath, $image_name1);
-               
-
             } else {
                 $image_name1 = date('YmdHis') . "1.pdf";
-               
             }
             if (!empty($request->file('fee_schedule'))) {
                 $image = $request->file('fee_schedule');
@@ -227,12 +225,25 @@ class DepartmentController extends Controller
         }
     }
 
+    // deleting the course file only
+    public function delete_course_file($file_name)
+    {
+        $destinationPath = 'upload/CourseDetails/';
+        try {
+            unlink($destinationPath . $file_name);
+            return redirect()->back()->with('update', 'File successfully Deleted');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'File does not exits');
+        }
+    }
+
+
     function searchData(Request $request)
     {
         $input =  $request->data;
         $data = DB::table('course_tbl')->orWhere('course', 'like', '%' . $input . '%')->orWhere('program', 'like', '%' . $input . '%')->orWhere('discipline', 'like', '%' . $input . '%')->orWhere('fee', 'like', '%' . $input . '%')->get();
         $i = 1;
-        $j=1;
+        $j = 1;
         foreach ($data as $department) {
 ?>
             <tr>
@@ -245,7 +256,7 @@ class DepartmentController extends Controller
                 <td> <?php echo $department->program ?> </td>
                 <td> <?php echo $department->fee ?> </td>
                 <td> <?php echo $department->duration ?> Years </td>
-              
+
                 <td>
                     <img width="100" src="<?php echo asset('upload/department/' . $department->images) ?>" alt="lol" />
 
