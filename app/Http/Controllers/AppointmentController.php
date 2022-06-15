@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
@@ -39,6 +40,7 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
+    
 
         $id =   DB::table('appointment_tbl')->insertGetId($request->except('_token'));
 
@@ -52,11 +54,11 @@ class AppointmentController extends Controller
             $img_name1 = date('YmdHis') . '3' . ".jpg";
             $header_image->move($destinationPath, $img_header);
             if ($image_name != '') {
-                $img_name = date('YmdHis') . '2' . ".".$image_name->getClientOriginalExtension();
+                $img_name = date('YmdHis') . '2' . "." . $image_name->getClientOriginalExtension();
                 $image_name->move($destinationPath, $img_name);
             }
             if ($image_name1 != '') {
-                $img_name1 = date('YmdHis') . '2' . ".".$image_name1->getClientOriginalExtension();
+                $img_name1 = date('YmdHis') . '3' . "." . $image_name1->getClientOriginalExtension();
                 $image_name1->move($destinationPath, $img_name1);
             }
 
@@ -116,7 +118,6 @@ class AppointmentController extends Controller
             $appointment_image = DB::table('appointment_tbl')->find($id);
             $appointment_image = $appointment_image->image_name;
             $image = $request->file('image_name');
-
             $destinationPath = 'upload/appointment/';
             $image->move($destinationPath, $appointment_image);
         }
@@ -155,18 +156,23 @@ class AppointmentController extends Controller
         $image_name = $appointment_image->image_name;
         $image_name1 = $appointment_image->image_name1;
         $image_name2 = $appointment_image->image_name2;
+        try {
+            if (file_exists(public_path('upload/appointment/' . $image_name2))) {
+                unlink(public_path('upload/appointment/' . $image_name2));
+            }
+            if (file_exists(public_path('upload/appointment/' . $image_name))) {
+                unlink(public_path('upload/appointment/' . $image_name));
+            }
+            if (file_exists(public_path('upload/appointment/' . $image_name1))) {
+                unlink(public_path('upload/appointment/' . $image_name1));
+            }
 
-        if (file_exists(public_path('upload/appointment/' . $image_name2))) {
-            unlink(public_path('upload/appointment/' . $image_name2));
+            DB::table('appointment_tbl')->delete($id);
+            return redirect()->back()->with('delete', 'Data successfully delete');
+        } catch (Exception $e) {
+            DB::table('appointment_tbl')->delete($id);
+            return redirect()->back()->with('delete', 'Data successfully delete');
         }
-        if (file_exists(public_path('upload/appointment/' . $image_name))) {
-            unlink(public_path('upload/appointment/' . $image_name));
-        }
-        if (file_exists(public_path('upload/appointment/' . $image_name1))) {
-            unlink(public_path('upload/appointment/' . $image_name1));
-        }
-        DB::table('appointment_tbl')->delete($id);
-        return redirect()->back()->with('delete', 'Data successfully delete');
     }
 
     function searchData(Request $request)

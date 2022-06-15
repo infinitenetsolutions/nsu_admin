@@ -83,7 +83,7 @@
                                             <label for="" class="text-dark"> <b> Student Image</b> </label>
                                             <div class="row">
                                                 <div class="col-sm-6">
-                                                    <input accept="image/*" name="image_name1" type="file"
+                                                    <input accept="image/*" name="image_name" type="file"
                                                         class="form-control" placeholder="image_name">
 
                                                 </div>
@@ -100,7 +100,7 @@
                                             <label for="" class="text-dark"> <b>Appointment Letter</b> </label>
                                             <div class="row">
                                                 <div class="col-sm-6">
-                                                    <input accept="image/*" name="image_name2" type="file"
+                                                    <input accept="image/*" name="image_name1" type="file"
                                                         class="form-control" placeholder="image_name">
 
                                                 </div>
