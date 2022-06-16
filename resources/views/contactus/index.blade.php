@@ -108,10 +108,10 @@
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
 
-                                                        <td> {{ $slider->name }} </td>
-                                                        <td> {{ $slider->email }} </td>
-                                                        <td> {{ $slider->phone }} </td>
-                                                        <td> {{ $slider->message }} </td>
+                                                        <td> {{ $slider->name ?? '' }} </td>
+                                                        <td> {{ $slider->email ?? '' }} </td>
+                                                        <td> {{ $slider->phone ?? '' }} </td>
+                                                        <td> {{ $slider->message ?? '' }} </td>
 
                                                         <td><a href="{{ route('contactus') }}/delete/{{ $slider->id }}"
                                                                 class="btn btn-danger btn-sm"><i
