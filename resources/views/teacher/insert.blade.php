@@ -54,7 +54,7 @@
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b> Email Id </b> </label>
-                                <input required name="emailid" type="text" class="form-control"
+                                <input  name="emailid" type="text" class="form-control"
                                     placeholder=" Email Id	">
 
                             </div>
@@ -72,7 +72,7 @@
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b> Resume </b> </label>
-                                <input required name="resume" accept="application/pdf" type="file" class="form-control"
+                                <input  name="resume" accept="application/pdf" type="file" class="form-control"
                                     placeholder="Images	">
 
                             </div>

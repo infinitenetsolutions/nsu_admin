@@ -96,7 +96,7 @@
                                         </div>
                                         <div class="form-group col-sm-4">
                                             <label for="" class="text-dark"> <b>Email Id</b> </label>
-                                            <input required name="emailid" type="text" class="form-control"
+                                            <input  name="emailid" type="text" class="form-control"
                                                 value="{{ $data->emailid }}" placeholder="Batch">
 
                                         </div>

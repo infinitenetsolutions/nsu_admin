@@ -45,22 +45,25 @@ class TeacherController extends Controller
     {
 
         $id =   DB::table('faculty_tbl')->insertGetId($request->except('_token'));
+        $destinationPath = 'upload/teacher/';
+        $img_name = date('YmdHis') . '2' . "." . '.pdf';
 
-        if ($request->file('image_name') && $request->file('resume')) {
+        if ($request->file('image_name')) {
             $header_image = $request->file('image_name');
-            $image_name = $request->file('resume');
-
-            $destinationPath = 'upload/teacher/';
             $img_header = date('YmdHis') . '1' . "." . $header_image->getClientOriginalExtension();
-            $img_name = date('YmdHis') . '2' . "." . $image_name->getClientOriginalExtension();
             $header_image->move($destinationPath, $img_header);
-            $image_name->move($destinationPath, $img_name);
-
-            DB::table('faculty_tbl')
-                ->where('id', $id)
-                ->update(['image_name' => $img_header, 'resume' => $img_name]);
-            return redirect()->back()->with('store', 'Data successfully Added');
         }
+        if ($request->file('resume')) {
+            $image_name = $request->file('resume');
+            $img_name = date('YmdHis') . '2' . "." . $image_name->getClientOriginalExtension();
+            $image_name->move($destinationPath, $img_name);
+        }
+
+
+        DB::table('faculty_tbl')
+            ->where('id', $id)
+            ->update(['image_name' => $img_header, 'resume' => $img_name]);
+        return redirect()->back()->with('store', 'Data successfully Added');
     }
 
 
@@ -171,12 +174,14 @@ class TeacherController extends Controller
                 <td> <?php echo $teacher->name ?> </td>
                 <td> <?php echo $teacher->designation ?> </td>
                 <td> <?php echo $teacher->emailid ?> </td>
-                <td> <select onchange="prarity(this.value,<?= $teacher->id ?>)"> 
-                 <option value="<?php echo $teacher->prarity ?>"><?php echo $teacher->prarity ?></option> 
+                <td> <select onchange="prarity(this.value,<?= $teacher->id ?>)">
+                        <option value="<?php echo $teacher->prarity ?>"><?php echo $teacher->prarity ?></option>
 
-                <?php foreach ($total_teachers as $d) {
-                                                                    echo '<option value="' . $j . '">' . $j . '</option>';
-                                                               $j++; } ?> </select> </td>
+                        <?php foreach ($total_teachers as $d) {
+                            echo '<option value="' . $j . '">' . $j . '</option>';
+                            $j++;
+                        } ?>
+                    </select> </td>
                 <td> <a href="<?php echo  asset('upload/teacher/' . $teacher->resume)  ?>" target="_blank">
                         <object data="<?php echo  asset('upload/teacher/' . $teacher->resume)  ?>" type="application/pdf" width="100" height="100">
 
