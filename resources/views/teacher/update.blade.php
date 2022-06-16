@@ -117,12 +117,8 @@
                                                 <div class="col-sm-6">
                                                     <img width="150"
                                                         src="{{ asset('upload/teacher/' . $data->image_name) }}" alt="">
-
                                                 </div>
-
                                             </div>
-
-
                                         </div>
                                         <div class="form-group col-sm-4">
                                             <label for="" class="text-dark"> <b> Resume </b> </label>
