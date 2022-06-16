@@ -83,6 +83,7 @@
                                                     <th>Name </th>
                                                     <th>Phone </th>
                                                     <th>Email</th>
+                                                    <th>Subject</th>
                                                     <th>Massage</th>
                                                     <th>Delete </th>
 
@@ -96,8 +97,8 @@
                                                     <th>Name </th>
                                                     <th>Phone </th>
                                                     <th>Email</th>
+                                                    <th>Subject</th>
                                                     <th>Massage</th>
-
                                                     <th>Delete </th>
 
                                                  
@@ -111,6 +112,7 @@
                                                         <td> {{ $slider->name ?? '' }} </td>
                                                         <td> {{ $slider->email ?? '' }} </td>
                                                         <td> {{ $slider->phone ?? '' }} </td>
+                                                                  <td> {{ $slider->subject ?? '' }} </td>
                                                         <td> {{ $slider->message ?? '' }} </td>
 
                                                         <td><a href="{{ route('contactus') }}/delete/{{ $slider->id }}"
