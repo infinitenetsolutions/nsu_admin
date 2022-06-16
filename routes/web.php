@@ -31,6 +31,7 @@ use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\AlumniCotroller;
+use App\Http\Controllers\ContactUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -323,6 +324,12 @@ Route::get('social/status/{id}', [SocialController::class, 'status'])->middlewar
 Route::get('social/update/{id}', [SocialController::class, 'edit'])->middleware('auth')->name('social.edit');
 Route::post('social/{id}/update', [SocialController::class, 'update'])->middleware('auth')->name('social.update');
 
+
+// contact us
+Route::get('contactus', [ContactUsController::class, 'index'])->middleware('auth')->name('contactus');
+Route::get('contactus/delete/{id}', [ContactUsController::class, 'destroy'])->middleware('auth')->name('contactus.delete');
+
+// contact us end
 
 
 // Routing of the categories

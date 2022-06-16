@@ -146,7 +146,7 @@
                     <a class="collapse-item" href="{{ route('teacher') }}">Teachers</a>
                     <a class="collapse-item" href="{{ route('affiliated') }}">Affiliated</a>
                     <a class="collapse-item" href="{{ route('govbody') }}">Governing body</a>
-
+                    <a class="collapse-item" href="{{ route('contactus') }}"> Contact Us </a>
                 </div>
             </div>
         </li>
