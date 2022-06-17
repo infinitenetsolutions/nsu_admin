@@ -23,7 +23,7 @@
                                     <option value="faculty">Faculty</option>
                                     <option value="hod">Head Of Department</option>
                                     <option value="hou">Head Of University</option>
-                                    <option value="others">Others</option>
+                                    <option value="administrative staff"> Administrative Staff </option>
 
                                 </select>
                             </div>
