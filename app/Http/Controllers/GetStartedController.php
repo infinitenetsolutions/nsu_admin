@@ -80,6 +80,6 @@ class GetStartedController extends Controller
     public function destroy($id)
     {
        DB::table('get_start')->delete($id);
-       return redirect()->back()->with('delete','Data Deleted Successfully');
+       return "https://nsucms.in/nsucms/nsuniv-get-enquiry";
     }
 }
