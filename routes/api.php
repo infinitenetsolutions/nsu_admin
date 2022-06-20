@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('getstart', [GetStartedController::class, 'index']);
+Route::get('getstart/delete/{id}', [GetStartedController::class, 'destroy']);
