@@ -13,7 +13,7 @@ class GetStartedController extends Controller
      */
     public function index()
     {
-       return DB::table('get_start')->get();
+       return DB::table('get_start')->orderByDesc('id')->get();
     }
 
     /**
