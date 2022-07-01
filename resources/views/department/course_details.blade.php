@@ -93,9 +93,9 @@
                                                 </select>
                                             </div>
                                             <div class="form-group col-sm-4">
-                                                <label for="" class="text-dark"> <b>Syllabus(Hons) @if ($data->syllabus != '')
+                                                <label for="" class="text-dark"> <b>Syllabus(Hons) @if ($data->syllabus ?? '' != '')
                                                             <a class="text-danger"
-                                                                href="{{ route('department.delete.file', $data->syllabus) }}"><i
+                                                                href="{{ route('department.delete.file', $data->syllabus ?? '') }}"><i
                                                                     class="fas fa-trash-alt"></i> </a>
                                                         @endif </b> </label>
 
@@ -108,7 +108,7 @@
                                                     <div class="col-sm-6">
                                                         @if ($data != 'null')
                                                             <object
-                                                                data="{{ asset('upload/CourseDetails/' . $data->syllabus) ?? '' }}"
+                                                                data="{{ asset('upload/CourseDetails/' . $data->syllabus ?? '') }}"
                                                                 type="application/pdf" width="100" height="100">
 
                                                             </object>
@@ -120,9 +120,9 @@
                                             </div>
                                             <div class="form-group col-sm-4">
                                                 <label for="" class="text-dark"> <b>Syllabus(Genral - optional )
-                                                        @if ($data->syllabus1 != '')
+                                                        @if ($data->syllabus1 ?? '' != '')
                                                             <a class="text-danger"
-                                                                href="{{ route('department.delete.file', $data->syllabus1) }}"><i
+                                                                href="{{ route('department.delete.file', $data->syllabus1 ?? '') }}"><i
                                                                     class="fas fa-trash-alt"></i> </a>
                                                         @endif
 
@@ -138,7 +138,7 @@
                                                     <div class="col-sm-6">
                                                         @if ($data != 'null')
                                                             <object
-                                                                data="{{ asset('upload/CourseDetails/' . $data->syllabus1) ?? '' }}"
+                                                                data="{{ asset('upload/CourseDetails/' . $data->syllabus1 ?? '') }}"
                                                                 type="application/pdf" width="100" height="100">
 
                                                             </object>
@@ -150,9 +150,9 @@
                                             </div>
                                             <div class="form-group col-sm-4">
                                                 <label for="" class="text-dark"> <b>Fee Schedule
-                                                        @if ($data->fee_schedule != '')
+                                                        @if ($data->fee_schedule ?? '' != '')
                                                             <a class="text-danger"
-                                                                href="{{ route('department.delete.file', $data->fee_schedule) }}"><i
+                                                                href="{{ route('department.delete.file', $data->fee_schedule ?? '') }}"><i
                                                                     class="fas fa-trash-alt"></i> </a>
                                                         @endif
                                                     </b> </label>
@@ -167,10 +167,10 @@
                                                     </div>
                                                     <div class="col-sm-6">
                                                         @if ($data != 'null')
-                                                            <a href="{{ asset('upload/CourseDetails/' . $data->fee_schedule) ?? '' }}"
+                                                            <a href="{{ asset('upload/CourseDetails/' . $data->fee_schedule ?? '') }}"
                                                                 target="_blank">
                                                                 <object
-                                                                    data="{{ asset('upload/CourseDetails/' . $data->fee_schedule) ?? '' }}"
+                                                                    data="{{ asset('upload/CourseDetails/' . $data->fee_schedule ?? '') }}"
                                                                     type="application/pdf" width="100" height="100">
 
                                                                 </object>
@@ -180,13 +180,13 @@
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-4">
-                                                <label for="" class="text-dark"> <b>Guidelines(optional) 
-                                                    @if ($data->guidelines != '')
-                                                    <a class="text-danger"
-                                                        href="{{ route('department.delete.file', $data->guidelines) }}"><i
-                                                            class="fas fa-trash-alt"></i> </a>
-                                                @endif    
-                                                </b> </label>
+                                                <label for="" class="text-dark"> <b>Guidelines(optional)
+                                                        @if ($data->guidelines ?? '' != '')
+                                                            <a class="text-danger"
+                                                                href="{{ route('department.delete.file', $data->guidelines ?? '') }}"><i
+                                                                    class="fas fa-trash-alt"></i> </a>
+                                                        @endif
+                                                    </b> </label>
                                                 <div class="row">
                                                     <div class="col-sm-6">
                                                         <input name="guidelines" value="{{ $data->guidelines ?? '' }}"
@@ -198,7 +198,7 @@
                                                             <a href="{{ asset('upload/CourseDetails/' . $data->guidelines ?? '') }}"
                                                                 target="_blank">
                                                                 <object
-                                                                    data="{{ asset('upload/CourseDetails/' . $data->guidelines) ?? '' }}"
+                                                                    data="{{ asset('upload/CourseDetails/' . $data->guidelines ?? '') }}"
                                                                     type="application/pdf" width="100" height="100">
 
                                                                 </object></a>
