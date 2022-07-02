@@ -115,7 +115,8 @@
                                                 <option value="ug">Under Graduate</option>
                                           <option value="pg">Post Graduate</option>
                                           <option value="certificate"> Certificate Courses </option>
-            
+                                          <option value="diploma"> Diploma Courses </option>
+
                                             </select>
                                         </div>
 
