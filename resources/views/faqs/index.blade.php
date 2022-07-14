@@ -102,8 +102,8 @@
                                             @foreach ($data as $faqs)
                                                 <tr>
 
-                                                    <td>{{ $data->type }}</td>
                                                     <td> {{ $loop->iteration }}
+                                                    <td>{{ $faqs->type }}</td>
                                                     <td> {{ $faqs->question }} </td>
                                                     <td> {{ $faqs->ans }} </td>
                                                     <td><a href="{{ route('faqs') }}/update/{{ $faqs->id }}"
