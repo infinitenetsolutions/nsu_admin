@@ -43,9 +43,8 @@
                                 <div class="col-6">
                                     <h6 class="m-0 font-weight-bold text-primary">Faqs </h6>
                                 </div>
-                                <div class="col-6"> <button type="button"
-                                        class="btn btn-primary btn-sm float-right " data-toggle="modal"
-                                        data-target=".bd-example-modal-lg">Add</button>
+                                <div class="col-6"> <button type="button" class="btn btn-primary btn-sm float-right "
+                                        data-toggle="modal" data-target=".bd-example-modal-lg">Add</button>
                                 </div>
                             </div>
                             @if (session('store'))
@@ -79,6 +78,7 @@
                                         <thead class="text-dark">
                                             <tr>
                                                 <th>S.NO</th>
+                                                <th>Type</th>
                                                 <th>Question </th>
                                                 <th>Answare </th>
                                                 <th>Action 1</th>
@@ -90,6 +90,7 @@
                                         <tfoot class="text-dark">
                                             <tr>
                                                 <th>S.NO</th>
+                                                <th>Type</th>
                                                 <th>Question </th>
                                                 <th>Answare </th>
                                                 <th>Action 1</th>
@@ -101,27 +102,25 @@
                                             @foreach ($data as $faqs)
                                                 <tr>
 
-
-                                                    <td> {{ $loop->iteration  }}
-
+                                                    <td>{{ $data->type }}</td>
+                                                    <td> {{ $loop->iteration }}
                                                     <td> {{ $faqs->question }} </td>
-                                               
-
                                                     <td> {{ $faqs->ans }} </td>
-
                                                     <td><a href="{{ route('faqs') }}/update/{{ $faqs->id }}"
-                                                            class="btn btn-warning btn-sm"><i
-                                                                class="far fa-edit"></i></a>
+                                                            class="btn btn-warning btn-sm"><i class="far fa-edit"></i></a>
                                                     </td>
                                                     <td><a href="{{ route('faqs') }}/delete/{{ $faqs->id }}"
                                                             class="btn btn-danger btn-sm"><i
                                                                 class="fas fa-trash-alt"></i></a>
                                                     </td>
                                                     <td><a href="{{ route('faqs') }}/status/{{ $faqs->id }}"
-                                                            class="btn @if ($faqs->status == 1)
-                                                                btn-success
-                                                                @endif btn-secondary  btn-sm">
-                                                            @if ($faqs->status == 1) Active @else Deactive @endif</a>
+                                                            class="btn @if ($faqs->status == 1) btn-success @endif btn-secondary  btn-sm">
+                                                            @if ($faqs->status == 1)
+                                                                Active
+                                                            @else
+                                                                Deactive
+                                                            @endif
+                                                        </a>
                                                     </td>
 
                                                 </tr>
