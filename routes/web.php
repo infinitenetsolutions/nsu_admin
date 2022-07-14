@@ -32,6 +32,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\AlumniCotroller;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\FaqController;
 
 /*
 |--------------------------------------------------------------------------
@@ -330,6 +331,18 @@ Route::get('contactus', [ContactUsController::class, 'index'])->middleware('auth
 Route::get('contactus/delete/{id}', [ContactUsController::class, 'destroy'])->middleware('auth')->name('contactus.delete');
 
 // contact us end
+
+// faqs start
+Route::get('faqs', [FaqController::class, 'index'])->middleware('auth')->name('faqs');
+Route::post('faqs', [FaqController::class, 'store'])->middleware('auth')->name('faqs.insert');
+Route::get('faqs/delete/{id}', [FaqController::class, 'destroy'])->middleware('auth')->name('faqs.delete');
+Route::get('faqs/status/{id}', [FaqController::class, 'status'])->middleware('auth')->name('faqs.status');
+Route::get('faqs/update/{id}', [FaqController::class, 'edit'])->middleware('auth')->name('faqs.edit');
+Route::post('faqs/update', [FaqController::class, 'update'])->middleware('auth')->name('faqs.update');
+
+// faqs end
+
+
 
 
 // Routing of the categories

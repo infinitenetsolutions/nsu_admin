@@ -200,6 +200,21 @@
                 </div>
             </div>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsefaq"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-question-circle"></i>
+                <span>Faqs</span>
+            </a>
+            <div id="collapsefaq" class="collapse" aria-labelledby="headingTwo"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="{{ route('faqs') }}"> Faqs </a>
+                </div>
+            </div>
+        </li>
+
         <!-- Divider -->
         <hr class="sidebar-divider">
         <!-- Heading -->
