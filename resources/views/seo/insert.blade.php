@@ -18,12 +18,17 @@
                             @csrf
 
                             <div class="form-group col-sm-4">
-                                <?php         $pages=DB::table('pages')->get();
+                                <?php $pages = DB::table('pages')->get();
+                                $courses = DB::table('course_tbl')->get();
                                 ?>
                                 <label for="" class="text-dark"> <b>Page Name</b> </label>
                                 <select required name="page_id" type="text" class="form-control" placeholder="Title">
-                                    @foreach ($pages as $page )
-                                    <option value="{{ $page->id }}">{{ $page->title }}</option>
+                                    <option value="{{ 'home' }}">{{ 'Home' }}</option>
+                                    @foreach ($pages as $page)
+                                        <option value="{{ $page->title }}">{{ $page->title }}</option>
+                                    @endforeach
+                                    @foreach ($courses as $course)
+                                        <option value="{{ $course->course }}">{{ $course->course }}</option>
                                     @endforeach
 
                                 </select>
@@ -135,7 +140,8 @@
                                 <input required name="canonical" type="text" class="form-control">
 
                             </div>
-                            <input name="created_at" type="hidden" value="{{ date('Y-m-d') }}" class="form-control">
+                            <input name="created_at" type="hidden" value="{{ date('Y-m-d') }}"
+                                class="form-control">
 
 
                             <div class="form-group col-sm-4">
@@ -149,14 +155,12 @@
                             </div>
                             <div class="form-group col-sm-12">
                                 <label for="" class="text-dark"> <b>keywords</b> </label>
-                                <textarea name="keywords" id="keywords" class="form-control"
-                                    placeholder="keywords"></textarea>
+                                <textarea name="keywords" id="keywords" class="form-control" placeholder="keywords"></textarea>
 
                             </div>
                             <div class="form-group col-sm-12">
                                 <label for="" class="text-dark"> <b>Description</b> </label>
-                                <textarea name="description" id="description" class="form-control"
-                                    placeholder="description"></textarea>
+                                <textarea name="description" id="description" class="form-control" placeholder="description"></textarea>
 
                             </div>
                         </div>

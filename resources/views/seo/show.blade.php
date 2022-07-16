@@ -33,27 +33,15 @@
                             <div class="container">
                                 <div class="row">
 
-                                    <?php         $pages=DB::table('pages')->find($data->page_id);
-                                    ?>
+                                    
                                     <div class="col-sm-12">
                                         <div class="row">
                                             <b class="col-sm-4"> Page Name : </b>
-                                            <p class="col-sm-8"> {{ $pages->title }}</p>
+                                            <p class="col-sm-8"> {{ $data->page_id }}</p>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12">
-                                        <div class="row">
-                                            <b class="col-sm-4"> Page Type : </b>
-                                            <p class="col-sm-8"> {{ $pages->page_type}}</p>
-                                        </div>
-                                    </div>
+                                  
 
-                                    <div class="col-sm-12">
-                                        <div class="row">
-                                            <b class="col-sm-4"> Title : </b>
-                                            <p class="col-sm-8"> {{ $data->title}}</p>
-                                        </div>
-                                    </div>
 
                                     <div class="col-sm-12">
                                         <div class="row">
