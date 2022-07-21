@@ -83,7 +83,6 @@ class FaqController extends Controller
      */
     public function update(Request $request)
     {
-
         $result = DB::table('faqs')
             ->where('id', $request->id)
             ->update($request->except(['_token', 'id']));

@@ -51,6 +51,8 @@
                                     <div class="container">
                                         <div class="row">
                                             @csrf
+                                            <input type="hidden" name="id" value="{{ $data->id }}" id="">
+
                                             <div class="form-group col-sm-4">
                                                 <label for="" class="text-dark"> <b>type</b> </label>
                                                 <select required name="type" type="text" class="form-control">
